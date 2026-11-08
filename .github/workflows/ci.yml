@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: py${{ matrix.python-version }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.8", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Unit tests (64 tests)
+        run: python -m unittest discover -s tests -v
+
+      - name: Build single-file zipapp
+        run: python build.py
+
+      - name: Zipapp smoke test
+        run: python dist/grantscope.pyz version
+
+      - name: Clean bundle must pass the gate
+        run: python dist/grantscope.pyz audit examples/good --no-color --fail-on high
+
+      - name: Broken bundle must fail the gate
+        shell: bash
+        run: |
+          if python dist/grantscope.pyz audit examples/bad --no-color --quiet --fail-on critical; then
+            echo "::error::bad bundle unexpectedly passed the CI gate"
+            exit 1
+          fi
+          echo "gate correctly rejected the broken bundle"
+
+      - name: SARIF report generation
+        run: python dist/grantscope.pyz audit examples/bad --format sarif --output grantscope.sarif --fail-on never
+
+      - name: Rule catalogue sanity
+        run: python dist/grantscope.pyz rules --format json

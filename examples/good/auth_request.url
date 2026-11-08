@@ -1,0 +1,1 @@
+https://id.example.com/authorize?response_type=code&client_id=mcp-client-01&redirect_uri=http%3A%2F%2F127.0.0.1%3A33418%2Fcallback&scope=openid+profile&state=St4te-Value-With-Enough-Entropy-0001&nonce=N0nce-Value-For-Replay-01&code_challenge=J9tsEYviA3Mb3lbuYmTQwCcXNPihkZdMISlBe9c_tYs&code_challenge_method=S256&resource=https%3A%2F%2Fmcp.example.com%2Fmcp

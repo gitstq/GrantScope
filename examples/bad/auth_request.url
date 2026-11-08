@@ -1,0 +1,1 @@
+http://id.example.com/authorize?response_type=code&client_id=mcp-client-01&redirect_uri=http%3A%2F%2Fevil.example.com%2Fcb%2A%23frag&scope=openid+profile+email&state=abc&client_secret=super-secret-should-not-be-here&code_challenge=not-a-valid-s256-challenge%3D&code_challenge_method=plain

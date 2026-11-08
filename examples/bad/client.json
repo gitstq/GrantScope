@@ -1,0 +1,6 @@
+{
+  "client_id": "mcp-client-01",
+  "redirect_uris": [
+    "https://legit.example.com/callback"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "token_type": "MAC",
+  "scope": "profile",
+  "client_secret": "leaked-into-response"
+}

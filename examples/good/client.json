@@ -1,0 +1,8 @@
+{
+  "client_id": "mcp-client-01",
+  "redirect_uris": [
+    "http://127.0.0.1:33418/callback"
+  ],
+  "token_endpoint_auth_method": "none",
+  "application_type": "native"
+}

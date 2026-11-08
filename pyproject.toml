@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grantscope"
+version = "1.0.0"
+description = "Zero-dependency, offline-first OAuth 2.1 / OIDC authorization-flow conformance & risk auditor (CLI + Python library + SARIF)"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "gitstq" }]
+maintainers = [{ name = "gitstq" }]
+keywords = [
+  "oauth", "oauth2", "oidc", "pkce", "mcp", "security", "static-analysis",
+  "sarif", "ci", "zero-dependency", "offline-first", "cli", "python",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+  "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.scripts]
+grantscope = "grantscope.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gitstq/GrantScope"
+Repository = "https://github.com/gitstq/GrantScope"
+Issues = "https://github.com/gitstq/GrantScope/issues"
+Changelog = "https://github.com/gitstq/GrantScope/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["grantscope"]
+
+[tool.setuptools.package-data]
+grantscope = ["py.typed"]

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+*.whl
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# GrantScope build artefacts (the .pyz is reproducible; do not commit it)
+.build_tmp/
+*.pyz
+*.sarif
+
+# Local configuration / secrets — never commit real credentials
+.env
+.env.local
+*.pem
+*.key
+secrets/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
